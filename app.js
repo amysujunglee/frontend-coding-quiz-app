@@ -44,3 +44,27 @@ let questions = [{
         answer: 1
     }
 ]
+
+const SCORE_POINTS = 100;
+const MAX_QUESTIONS = 4 l
+
+startGame = () => {
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questions];
+    getNewQuestion();
+}
+
+getNewQuestion = () => {
+    if (availableQuestions === 0 || questionCounter > MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score);
+
+        return window.location.assign('/end.html');
+    }
+
+    questionCounter++;
+    progressText.innerHTML = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
+    progressBarFull.style.width = `${[questionCounter/MAX_QUESTIONS] * 100}%`
+
+    
+}
