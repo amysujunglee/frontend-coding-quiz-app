@@ -6,11 +6,16 @@
 const startBtn = document.querySelector('#start-btn');
 const questionContainer = document.querySelector('#question-container');
 
+const shuffledQuestions, currentQuestionIndex;
+
 startBtn.addEventListener('click', startGame);
 
 function startGame() {
     console.log('start game!');
     startBtn.classList.add('hide');
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
+    currentQuestionIndex = 0;
+    console.log(shuffledQuestions);
     questionContainer.classList.remove('hide')
     setNextQuestion();
 }
@@ -22,3 +27,16 @@ function setNextQuestion() {
 function selectAnswer() {
 
 }
+
+const questions = [{
+    question: 'What is 2 + 2 ?',
+    answer: [{
+            text: '4',
+            correct: true
+        },
+        {
+            text: '22',
+            correct: false
+        },
+    ]
+}];
