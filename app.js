@@ -51,7 +51,9 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-
+    const selectedBtn = e.target;
+    const correct = selectedBtn.dataset.correct;
+    setStatusClass(document.body, correct)
 }
 
 const questions = [{
