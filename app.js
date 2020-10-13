@@ -14,11 +14,9 @@ let shuffledQuestions, currentQuestionIndex;
 startBtn.addEventListener('click', startGame);
 
 function startGame() {
-    console.log('start game!');
     startBtn.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
-    console.log(shuffledQuestions);
     questionContainer.classList.remove('hide')
     setNextQuestion();
 }
