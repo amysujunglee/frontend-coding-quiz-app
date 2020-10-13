@@ -1,10 +1,12 @@
 // Create a list of questions
 // Start the game - after 'Start' button
 // Show the first question - after clicking 'Start' button
+// Reset the state
 // Show the next question - after clicking 'Next' button
 // Select the answer - showing an effect when the user selects a correct answer or wrong answer
 
 const startBtn = document.querySelector('#start-btn');
+const nextBtn = document.querySelector('#next-btn')
 const questionContainer = document.querySelector('#question-container');
 const questionElement = document.querySelector('#question');
 const answerBtns = document.querySelector('#answer-buttons');
@@ -22,6 +24,7 @@ function startGame() {
 }
 
 function setNextQuestion() {
+    resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
@@ -39,7 +42,15 @@ function showQuestion(question) {
     });
 }
 
-function selectAnswer() {
+function resetState() {
+    nextBtn.classList.add('hide');
+    while (answerBtns.firstChild) {
+        answerBtns.removeChild;
+        (answerBtns.firstChild);
+    }
+}
+
+function selectAnswer(e) {
 
 }
 
