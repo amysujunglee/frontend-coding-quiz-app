@@ -22,6 +22,10 @@ function startGame() {
 }
 
 function setNextQuestion() {
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+function showQuestion() {
 
 }
 
