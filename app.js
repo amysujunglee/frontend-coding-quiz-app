@@ -1,5 +1,6 @@
 // Create a list of questions
-// Start the game - after clicking 'Start' button
+// Start the game - after 'Start' button
+// Show the first question - after clicking 'Start' button
 // Show the next question - after clicking 'Next' button
 // Select the answer - showing an effect when the user selects a correct answer or wrong answer
 
