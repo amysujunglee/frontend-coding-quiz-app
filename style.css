@@ -2,7 +2,6 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 :root {
@@ -34,7 +33,7 @@ body.wrong {
 .container {
     width: 800px;
     max-width: 80%;
-    background-color: #fff;
+    background-color: white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
@@ -53,17 +52,17 @@ body.wrong {
     background-color: hsl(var(--hue), 100%, 50%);
     border-radius: 5px;
     padding: 5px 10px;
-    color: #fff;
+    color: white;
     outline: none;
 }
 
 .btn:hover {
-    border-color: #000;
+    border-color: black;
 }
 
 .btn.correct {
     --hue: var(--hue-correct);
-    color: #000;
+    color: black;
 }
 
 .btn.wrong {

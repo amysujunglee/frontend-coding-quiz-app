@@ -5,105 +5,106 @@
 // Show the next question - after clicking 'Next' button
 // Select the answer - showing an effect when the user selects a correct answer or wrong answer
 
-const startBtn = document.querySelector('#start-btn');
-const nextBtn = document.querySelector('#next-btn')
-const questionContainer = document.querySelector('#question-container');
-const questionElement = document.querySelector('#question');
-const answerBtns = document.querySelector('#answer-buttons');
+const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
 
-let shuffledQuestions, currentQuestionIndex;
+let shuffledQuestions, currentQuestionIndex
 
-startBtn.addEventListener('click', startGame);
-nextBtn.addEventListener('click', () => {
-    currentQuestionIndex++;
-    setNextQuestion();
+startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++
+    setNextQuestion()
 })
 
 function startGame() {
-    startBtn.classList.add('hide');
-    shuffledQuestions = questions.sort(() => Math.random() - .5);
-    currentQuestionIndex = 0;
-    questionContainer.classList.remove('hide')
-    setNextQuestion();
+    startButton.classList.add('hide')
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    questionContainerElement.classList.remove('hide')
+    setNextQuestion()
 }
 
 function setNextQuestion() {
-    resetState();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    resetState()
+    showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
-    questionElement.innerText = question.question;
+    questionElement.innerText = question.question
     question.answers.forEach(answer => {
-        const button = document.createElement('button');
-        button.innerText = answer.text;
-        button.classList.add('btn');
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
         if (answer.correct) {
-            button.dataset.correct = answer.correct;
+            button.dataset.correct = answer.correct
         }
-        button.addEventListener('click', selectAnswer);
-        answerBtns.appendChild(button);
-    });
+        button.addEventListener('click', selectAnswer)
+        answerButtonsElement.appendChild(button)
+    })
 }
 
 function resetState() {
-    clearStatusClass(document.body);
-    nextBtn.classList.add('hide');
-    while (answerBtns.firstChild) {
-        answerBtns.removeChild;
-        (answerBtns.firstChild);
+    clearStatusClass(document.body)
+    nextButton.classList.add('hide')
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
 }
 
 function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const correct = selectedBtn.dataset.correct;
-    setStatusClass(document.body, correct);
-    Array.from(answerBtns.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct);
-    });
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsElement.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        nextBtn.classList.remove('hide');
+        nextButton.classList.remove('hide')
     } else {
-        startBtn.innerText = 'Restart';
-        startBtn.classList.remove('hide');
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
     }
 }
 
 function setStatusClass(element, correct) {
-    clearStatusClass(element);
+    clearStatusClass(element)
     if (correct) {
-        element.classList.add('correct');
+        element.classList.add('correct')
     } else {
-        element.classList.add('wrong');
+        element.classList.add('wrong')
     }
 }
 
 function clearStatusClass(element) {
-    element.classList.remove('correct');
-    element.classList.remove('wrong');
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
 }
 
 const questions = [{
-    question: 'What is 2 + 2 ?',
-    answers: [{
-            text: '4',
-            correct: true
-        },
-        {
-            text: '22',
-            correct: false
-        },
-    ]
-}, {
-    question: 'What is 4 + 4 ?',
-    answers: [{
-            text: '3',
-            correct: false
-        },
-        {
-            text: '8',
-            correct: true
-        },
-    ]
-}];
+        question: 'What is 2 + 2?',
+        answers: [{
+                text: '4',
+                correct: true
+            },
+            {
+                text: '22',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'What is 4 * 2?',
+        answers: [{
+                text: '6',
+                correct: false
+            },
+            {
+                text: '8',
+                correct: true
+            }
+        ]
+    }
+]
