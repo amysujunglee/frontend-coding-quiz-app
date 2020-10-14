@@ -14,6 +14,10 @@ const answerBtns = document.querySelector('#answer-buttons');
 let shuffledQuestions, currentQuestionIndex;
 
 startBtn.addEventListener('click', startGame);
+nextBtn.addEventListener('click', () => {
+    currentQuestionIndex++;
+    setNextQuestion();
+})
 
 function startGame() {
     startBtn.classList.add('hide');
@@ -43,6 +47,7 @@ function showQuestion(question) {
 }
 
 function resetState() {
+    clearStatusClass(document.body);
     nextBtn.classList.add('hide');
     while (answerBtns.firstChild) {
         answerBtns.removeChild;
@@ -57,6 +62,12 @@ function selectAnswer(e) {
     Array.from(answerBtns.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     });
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        nextBtn.classList.remove('hide');
+    } else {
+        startBtn.innerText = 'Restart';
+        startBtn.classList.remove('hide');
+    }
 }
 
 function setStatusClass(element, correct) {
@@ -82,6 +93,17 @@ const questions = [{
         {
             text: '22',
             correct: false
+        },
+    ]
+}, {
+    question: 'What is 4 + 4 ?',
+    answers: [{
+            text: '3',
+            correct: false
+        },
+        {
+            text: '8',
+            correct: true
         },
     ]
 }];
