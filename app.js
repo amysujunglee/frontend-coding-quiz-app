@@ -61,8 +61,13 @@ function selectAnswer(e) {
     });
 }
 
-function setStatusClass() {
-    
+function setStatusClass(element, correct) {
+    clearStatusClass(element);
+    if (correct) {
+        element.classList.add('correct');
+    } else {
+        element.classList.add('wrong');
+    }
 }
 
 const questions = [{
