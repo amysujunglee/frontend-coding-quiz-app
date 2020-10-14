@@ -52,9 +52,7 @@ function resetState() {
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
-    console.log(selectedBtn);
     const correct = selectedBtn.dataset.correct;
-    console.log(correct);
     setStatusClass(document.body, correct);
     Array.from(answerBtns.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
@@ -68,6 +66,11 @@ function setStatusClass(element, correct) {
     } else {
         element.classList.add('wrong');
     }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct');
+    element.classList.remove('wrong');
 }
 
 const questions = [{
