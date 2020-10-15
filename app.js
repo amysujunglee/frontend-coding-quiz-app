@@ -84,13 +84,13 @@ function clearStatusClass(element) {
 }
 
 const questions = [{
-        question: 'What is 2 + 2?',
+        question: 'HTML stands for?',
         answers: [{
-                text: '4',
+                text: 'Hyper Text Markup Language',
                 correct: true
             },
             {
-                text: '22',
+                text: 'Hyper Text Makeup Language',
                 correct: false
             }
         ]
