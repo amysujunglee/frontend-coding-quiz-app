@@ -60,6 +60,7 @@ body.wrong {
     padding: 5px 10px;
     color: white;
     outline: none;
+    font-size: 1rem;
 }
 
 .btn:hover {
