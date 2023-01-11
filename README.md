@@ -1,8 +1,8 @@
-# coding-quiz
+# Frontend Coding Quiz App
 A coding quiz app to help junior developers solve basic concepts of web development
 
-Languages used:
+## Languages
 - JavaScript, HTML, CSS
 
-Methods:
+## Methods
 - Array.from()
