@@ -5,6 +5,8 @@
 // Show the next question - after clicking 'Next' button
 // Select the answer - showing an effect when the user selects a correct answer or wrong answer
 
+import questions from './data.js';
+
 const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
@@ -82,29 +84,3 @@ function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 }
-
-const questions = [{
-        question: 'HTML stands for?',
-        answers: [{
-                text: 'Hyper Text Markup Language',
-                correct: true
-            },
-            {
-                text: 'Hyper Text Makeup Language',
-                correct: false
-            }
-        ]
-    },
-    {
-        question: 'What is 4 * 2?',
-        answers: [{
-                text: '6',
-                correct: false
-            },
-            {
-                text: '8',
-                correct: true
-            }
-        ]
-    }
-]
