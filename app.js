@@ -7,11 +7,11 @@
 
 import questions from './data.js';
 
-const startButton = document.getElementById('start-btn');
-const nextButton = document.getElementById('next-btn');
-const questionContainerElement = document.getElementById('question-container');
-const questionElement = document.getElementById('question');
-const answerButtonsElement = document.getElementById('answer-buttons');
+const startButton = document.querySelector('#start-btn');
+const nextButton = document.querySelector('#next-btn');
+const questionContainerElement = document.querySelector('#question-container');
+const questionElement = document.querySelector('#question');
+const answerButtonsElement = document.querySelector('#answer-buttons');
 
 let shuffledQuestions, currentQuestionIndex;
 
